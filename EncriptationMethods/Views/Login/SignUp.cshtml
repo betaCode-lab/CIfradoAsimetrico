@@ -1,0 +1,71 @@
+﻿@model EncriptationMethods.Models.User
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>SignUp</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+</head>
+<body class="bg-dark">
+
+    <div class="container mt-5 pt-5">
+        <div class="row justify-content-center">
+            <div class="col-12 col-xl-4 col-md-6">
+
+                <h1 class="text-center text-primary fw-bolder mb-3">BBVA <span class="text-uppercase fw-light">Bancomer</span></h1>
+
+                <div class="card">
+                    <div class="card-header">Sign Up</div>
+                    <div class="card-body">
+                        <form asp-controller="Login" asp-action="SignUp" method="post" id="formSignUp">
+
+                            <div class="mb-3">
+                                <input class="form-control" type="text" placeholder="Ex: Adrian Bañuelas" asp-for="Username" id="username"/>
+                                <span class="text-danger" asp-validation-for="Username"></span>
+                            </div>
+
+                            <div class="mb-3">
+                                <input class="form-control" type="email" placeholder="Ex: correo@correo.com" asp-for="Email" id="email"/>
+                                <span class="text-danger" asp-validation-for="Email"></span>
+                            </div>
+
+                            <div class="mb-3">
+                                <input class="form-control" type="number" placeholder="Ex: 6144512348" asp-for="Telephone" id="telephone"/>
+                                <span class="text-danger" asp-validation-for="Telephone"></span>
+                            </div>
+
+                            <div class="mb-3">
+                                <input class="form-control" type="password" placeholder="••••••••••" asp-for="Password" id="password"/>
+                                <span class="text-danger" asp-validation-for="Password"></span>
+                            </div>
+
+                            <div class="d-grid gap-2 mb-3">
+                                <button class="btn btn-primary" type="submit">Sign Up</button>
+                            </div>
+
+                            @if (ViewData["Message"] != null)
+                            {
+                                <div class="form-group">
+                                    <div class="alert alert-danger" role="alert">
+                                        @ViewData["Message"]
+                                    </div>
+                                </div>
+                            }
+
+                            Did you have an account? <a style="text-decoration: none" href="@Url.Action("Login", "Login")">Log in</a>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
